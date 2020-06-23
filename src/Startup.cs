@@ -30,6 +30,8 @@ namespace Uption
 
             services.AddMvc();
 
+            services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Uption", Version = "v1.0" });
@@ -59,10 +61,7 @@ namespace Uption
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
 
