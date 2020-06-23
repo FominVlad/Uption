@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Uption.Models;
 using Uption.Models.DTO;
 
@@ -42,9 +40,8 @@ namespace Uption.Helpers
 
                 actionManager.AddAction(action);
 
-                string messageStr = $"From: {addMessageDTO.Name} ({addMessageDTO.Email}).<br>Message:<br>{addMessageDTO.Text}";
-
-                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com" }, $"New message by {addMessageDTO.Name}", messageStr);
+                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com" }, 
+                    $"New message by {addMessageDTO.Name}", FormMessageText(addMessageDTO));
 
                 return true;
             }
@@ -52,6 +49,11 @@ namespace Uption.Helpers
             {
                 return false;
             }
+        }
+
+        private string FormMessageText(AddMessageDTO addMessageDTO)
+        {
+            return $"From: {addMessageDTO.Name} ({addMessageDTO.Email}).<br>Message:<br>{addMessageDTO.Text}";
         }
     }
 }

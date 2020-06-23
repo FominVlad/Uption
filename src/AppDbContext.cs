@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Uption.Models;
 
 namespace Uption
@@ -15,23 +11,23 @@ namespace Uption
         public DbSet<Message> Messages { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        {
-
-        }
+            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configure primary keys
             modelBuilder.Entity<Models.Action>().HasKey(a => a.Id).HasName("PK_Actions");
             modelBuilder.Entity<ActionType>().HasKey(at => at.Id).HasName("PK_ActionTypes");
             modelBuilder.Entity<Message>().HasKey(m => m.Id).HasName("PK_Messages");
             modelBuilder.Entity<IpLocation>().HasKey(il => il.Ip).HasName("PK_IpLocations");
 
+            // Configure foreign keys
             modelBuilder.Entity<Models.Action>().HasOne(at => at.ActionType)
                                                 .WithMany(a => a.Actions)
                                                 .HasForeignKey(at => at.ActionTypeId)
                                                 .HasConstraintName("FK_Actions_ActionTypes");
 
+            // Configure initial data
             modelBuilder.Entity<ActionType>().HasData(
                 new ActionType[]
                 {

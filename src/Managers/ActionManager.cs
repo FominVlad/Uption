@@ -33,9 +33,7 @@ namespace Uption.Helpers
 
                 if (dbContext.IpLocations.FirstOrDefault(x => x.Ip == addActionDTO.Ip) == null)
                 {
-                    Task<IpLocation> parsedIp = ipParser.Parse(addActionDTO.Ip);
-                    dbContext.IpLocations.Add(parsedIp.Result);
-                    dbContext.SaveChanges();
+                    AddIpLocation(addActionDTO.Ip);
                 }
 
                 return true;
@@ -44,6 +42,13 @@ namespace Uption.Helpers
             {
                 return false;
             }
+        }
+
+        private void AddIpLocation(string ip)
+        {
+            Task<IpLocation> parsedIp = ipParser.Parse(ip);
+            dbContext.IpLocations.Add(parsedIp.Result);
+            dbContext.SaveChanges();
         }
 
         public List<ViewActionDTO> GetActions()

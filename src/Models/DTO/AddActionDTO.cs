@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Uption.Models
+﻿namespace Uption.Models
 {
     public class AddActionDTO
     {
+        /// <summary>
+        /// Action IP adress
+        /// </summary>
         public string Ip { get; set; }
 
+        /// <summary>
+        /// Action type unique id
+        /// </summary>
         public int ActionTypeId { get; set; }
     }
 }
