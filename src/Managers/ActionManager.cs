@@ -21,6 +21,13 @@ namespace Uption.Helpers
         {
             try
             {
+                Models.Action lastAction = GetLastAction(addActionDTO);
+
+                if (lastAction != null && CompareDates(DateTime.Now, lastAction.Date, 900))
+                {
+                    return true;
+                }
+
                 Models.Action action = new Models.Action()
                 {
                     ActionTypeId = addActionDTO.ActionTypeId,
@@ -69,6 +76,17 @@ namespace Uption.Helpers
                     };
 
             return result.ToList();
+        }
+
+        private Models.Action GetLastAction(AddActionDTO addActionDTO)
+        {
+            return dbContext.Actions.Where(a => a.Ip == addActionDTO.Ip && a.Date == dbContext.Actions.Max(d => d.Date) &&
+                    a.ActionTypeId == addActionDTO.ActionTypeId).FirstOrDefault();
+        }
+
+        private bool CompareDates(DateTime firstDate, DateTime secondDate, int diffDate)
+        {
+            return (int)(firstDate - secondDate).TotalSeconds < diffDate;
         }
     }
 }

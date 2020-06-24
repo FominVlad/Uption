@@ -14,12 +14,6 @@ namespace Uption.Controllers
             emailManager = new EmailManager(dbContext);
         }
 
-        //[HttpGet]
-        //public List<Message> Get()
-        //{
-            
-        //}
-
         [HttpPut]
         public IActionResult Put([FromBody] AddMessageDTO addMessageDTO)
         {
