@@ -24,6 +24,10 @@ namespace Uption.Models
         /// </summary>
         public DateTime Date { get; set; }
 
+        public int DeviceTypeId { get; set; }
+
         public ActionType ActionType { get; set; }
+
+        public DeviceType DeviceType { get; set; }
     }
 }

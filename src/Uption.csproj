@@ -9,6 +9,26 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200624063236_Init.cs" />
     <Compile Remove="Migrations\20200624063236_Init.Designer.cs" />
+    <Compile Remove="Migrations\20200701141949_Add_New_Model.cs" />
+    <Compile Remove="Migrations\20200701141949_Add_New_Model.Designer.cs" />
+    <Compile Remove="Migrations\20200701143400_Add_New_Model.cs" />
+    <Compile Remove="Migrations\20200701143400_Add_New_Model.Designer.cs" />
+    <Compile Remove="Migrations\20200701143440_Add_New_Model.cs" />
+    <Compile Remove="Migrations\20200701143440_Add_New_Model.Designer.cs" />
+    <Compile Remove="Migrations\20200701143647_Add_New_Model.cs" />
+    <Compile Remove="Migrations\20200701143647_Add_New_Model.Designer.cs" />
+    <Compile Remove="Migrations\20200701144203_Add_New_Model.cs" />
+    <Compile Remove="Migrations\20200701144203_Add_New_Model.Designer.cs" />
+    <Compile Remove="Migrations\20200701145027_Add_FK_ACTIONS.cs" />
+    <Compile Remove="Migrations\20200701145027_Add_FK_ACTIONS.Designer.cs" />
+    <Compile Remove="Migrations\20200701145315_Add_FK_ACTIONS.cs" />
+    <Compile Remove="Migrations\20200701145315_Add_FK_ACTIONS.Designer.cs" />
+    <Compile Remove="Migrations\20200701145842_Add_FK_ACTIONS.cs" />
+    <Compile Remove="Migrations\20200701145842_Add_FK_ACTIONS.Designer.cs" />
+    <Compile Remove="Migrations\20200701145933_Add_FK_ACTIONS.cs" />
+    <Compile Remove="Migrations\20200701145933_Add_FK_ACTIONS.Designer.cs" />
+    <Compile Remove="Migrations\20200701150023_Add_FK_ACTIONS.cs" />
+    <Compile Remove="Migrations\20200701150023_Add_FK_ACTIONS.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
