@@ -21,5 +21,10 @@
         /// Message text
         /// </summary>
         public string Text { get; set; }
+
+        /// <summary>
+        /// Feedback text language
+        /// </summary>
+        public string Language { get; set; }
     }
 }
