@@ -41,7 +41,7 @@ namespace Uption.Helpers
 
                 actionManager.AddAction(action);
 
-                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com" }, 
+                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com" },
                     $"Новое сообщение от {addMessageDTO.Name}", FormMessageText(addMessageDTO));
 
                 SendFeedback(addMessageDTO);
@@ -58,7 +58,7 @@ namespace Uption.Helpers
         {
             return $"<b>Отправитель:</b><br>{addMessageDTO.Name} ({addMessageDTO.Email}).<br><b>Текст:</b><br>{addMessageDTO.Text}<br><b>Язык общения:</b> <em>{addMessageDTO.Language}.</em>";
         }
-        
+
         private void FeedbackMessageText(AddMessageDTO addMessageDTO, out string messageSubject, out string messageText)
         {
             switch (addMessageDTO?.Language)
@@ -110,5 +110,3 @@ namespace Uption.Helpers
         }
     }
 }
-
-

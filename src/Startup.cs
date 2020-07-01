@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Uption.Helpers;
 
 namespace Uption
 {
@@ -27,6 +28,8 @@ namespace Uption
             services.AddMvc();
 
             services.AddControllers();
+
+            services.AddTelegramService();
 
             services.AddSwaggerGen(c =>
             {
