@@ -41,7 +41,7 @@ namespace Uption.Helpers
 
                 actionManager.AddAction(action);
 
-                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com" },
+                emailSender.SendEmail(new List<string>() { "mr.vladyslavfomin@gmail.com", "illya.fedorovych@gmail.com" },
                     $"Новое сообщение от {addMessageDTO.Name}", FormMessageText(addMessageDTO));
 
                 SendFeedback(addMessageDTO);
@@ -56,7 +56,8 @@ namespace Uption.Helpers
 
         private string FormMessageText(AddMessageDTO addMessageDTO)
         {
-            return $"<b>Отправитель:</b><br>{addMessageDTO.Name} ({addMessageDTO.Email}).<br><b>Текст:</b><br>{addMessageDTO.Text}<br><b>Язык общения:</b> <em>{addMessageDTO.Language}.</em>";
+            return $"<b>Отправитель:</b><br>{addMessageDTO.Name} ({addMessageDTO.Email}).<br><b>Текст:</b>" +
+                $"<br>{addMessageDTO.Text}<br><b>Язык общения:</b> <em>{addMessageDTO.Language}.</em>";
         }
 
         private void FeedbackMessageText(AddMessageDTO addMessageDTO, out string messageSubject, out string messageText)
@@ -66,19 +67,25 @@ namespace Uption.Helpers
                 case "Rus":
                     {
                         messageSubject = "Ваше сообщение было доставлено!";
-                        messageText = $"Здравствуйте, <b>{addMessageDTO.Name}</b>!<br>Мы получили Ваше сообщение:<br><em>\"{addMessageDTO.Text}\"</em>.<br>С Вами свяжутся в ближайшее время.<br>С уважением, <b>команда Uption</b>!";
+                        messageText = $"Здравствуйте, <b>{addMessageDTO.Name}</b>!<br>Мы получили Ваше сообщение:<br>" +
+                            $"<em>\"{addMessageDTO.Text}\"</em>.<br>С Вами свяжутся в ближайшее время." +
+                            $"<br>С уважением, <b>команда Uption</b>!";
                         break;
                     };
                 case "Ukr":
                     {
                         messageSubject = "Ваше повідомлення було доставлено!";
-                        messageText = $"Привіт, <b>{addMessageDTO.Name}</b>!<br>Ми отримали Ваше повідомлення:<br><em>\"{addMessageDTO.Text}\"</em>.<br>З Вами зв'яжуться найближчим часом.<br>З повагою, <b>команда Uption</b>!";
+                        messageText = $"Привіт, <b>{addMessageDTO.Name}</b>!<br>Ми отримали Ваше повідомлення:<br>" +
+                            $"<em>\"{addMessageDTO.Text}\"</em>.<br>З Вами зв'яжуться найближчим часом." +
+                            $"<br>З повагою, <b>команда Uption</b>!";
                         break;
                     };
                 case "Eng":
                     {
                         messageSubject = "Your message has been delivered!";
-                        messageText = $"Hello, <b>{addMessageDTO.Name}</b>!<br>We have received your message:<br><em>\"{addMessageDTO.Text}\"</em>.<br>You will be contacted shortly.<br>Regards, <b>Uption team</b>!";
+                        messageText = $"Hello, <b>{addMessageDTO.Name}</b>!<br>We have received your message:<br>" +
+                            $"<em>\"{addMessageDTO.Text}\"</em>.<br>You will be contacted shortly." +
+                            $"<br>Regards, <b>Uption team</b>!";
                         break;
                     }
                 default:
