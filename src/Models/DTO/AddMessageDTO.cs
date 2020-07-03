@@ -26,5 +26,10 @@
         /// Feedback text language
         /// </summary>
         public string Language { get; set; }
+
+        /// <summary>
+        /// Devicew type unique id
+        /// </summary>
+        public int DeviceTypeId { get; set; }
     }
 }

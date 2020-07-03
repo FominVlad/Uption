@@ -11,5 +11,10 @@
         /// Action type unique id
         /// </summary>
         public int ActionTypeId { get; set; }
+
+        /// <summary>
+        /// Devicew type unique id
+        /// </summary>
+        public int DeviceTypeId { get; set; }
     }
 }

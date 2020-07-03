@@ -32,7 +32,8 @@ namespace Uption.Helpers
                 {
                     ActionTypeId = addActionDTO.ActionTypeId,
                     Ip = addActionDTO.Ip,
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
+                    DeviceTypeId = addActionDTO.DeviceTypeId
                 };
 
                 dbContext.Actions.Add(action);

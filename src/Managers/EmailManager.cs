@@ -36,7 +36,8 @@ namespace Uption.Helpers
                 AddActionDTO action = new AddActionDTO()
                 {
                     Ip = addMessageDTO.Ip,
-                    ActionTypeId = 2
+                    ActionTypeId = 2,
+                    DeviceTypeId = addMessageDTO.DeviceTypeId
                 };
 
                 actionManager.AddAction(action);
